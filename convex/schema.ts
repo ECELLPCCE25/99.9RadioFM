@@ -41,4 +41,17 @@ export default defineSchema({
   }).index("by_order", ["order"]),
 
 
+moneySpent: defineTable({
+    clerkId: v.string(),
+    records: v.array(
+        v.object({
+            category: v.string(),
+            date: v.string(),
+            fullTimestamp: v.string(),
+            moneyPaid: v.string(),
+            to: v.string(),
+        })
+    ),
+}).index("by_clerk_id", ["clerkId"]),
+
 });
