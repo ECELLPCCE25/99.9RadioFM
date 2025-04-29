@@ -114,8 +114,11 @@ export default function FinancialDashboard() {
                         </CardContent>
                     </Card>
                     </div>
-                    <div className="ml-auto">
-                        <Image alt="mascot" src={Fin.src} height={Fin.height-100} width={Fin.width-100}/>
+                    <div className="ml-auto relative ">
+                        <div className="bg-black text-white text-xs absolute rounded-xl shadow w-1/2 top-[45%] left-[-10%] p-3">
+                            Kya cheez hai yaar tu! You have completed 20% more content this week, then previous
+                        </div>
+                        <Image alt="mascot" src={Fin.src} height={Fin.height-150} width={Fin.width-150}/>
                     </div>
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">

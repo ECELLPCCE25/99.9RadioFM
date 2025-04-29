@@ -1,8 +1,11 @@
+import { ChatRoom } from '@/components/ChatRoom'
 import React from 'react'
 
 function GroupChatPage() {
   return (
-    <div>GroupChatPage</div>
+    <div>
+        <ChatRoom />
+    </div>
   )
 }
 

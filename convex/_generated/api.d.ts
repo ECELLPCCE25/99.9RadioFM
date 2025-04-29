@@ -13,6 +13,8 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as group_goals from "../group_goals.js";
+import type * as groups from "../groups.js";
 import type * as modules from "../modules.js";
 import type * as transactions from "../transactions.js";
 import type * as user from "../user.js";
@@ -26,6 +28,8 @@ import type * as user from "../user.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  group_goals: typeof group_goals;
+  groups: typeof groups;
   modules: typeof modules;
   transactions: typeof transactions;
   user: typeof user;

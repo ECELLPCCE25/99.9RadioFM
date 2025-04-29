@@ -54,4 +54,33 @@ moneySpent: defineTable({
     ),
 }).index("by_clerk_id", ["clerkId"]),
 
+
+    groups: defineTable({
+        id: v.string(),
+        name: v.string(),
+        description: v.string(),
+        participants: v.array(v.object({
+            id: v.string(),
+            name: v.string(),
+            email: v.string(),
+            avatar: v.string(),
+        })),
+        messages: v.array(v.object({
+            id: v.string(),
+            content: v.string(),
+            sender: v.object({
+                id: v.string(),
+                name: v.string(),
+                avatar: v.string(),
+            }),
+            timestamp: v.number(),
+        })),
+    }).index("by_clerk_id", ["id"]),
+
+    group_goals: defineTable({
+        groupId: v.string(),
+        goal: v.string(),
+        end_date: v.string(),
+        progress: v.number(),
+    }).index("by_group_id", ["groupId"]),
 });
