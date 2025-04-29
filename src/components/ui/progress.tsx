@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import * as React from "react"
@@ -8,7 +10,7 @@ import { cn } from "@/lib/utils"
 function Progress({
   className,
   value,
-  /*@ts-ignore*/
+  // @ts-expect-error
   indicatorColor,
   ...props
 }: React.ComponentProps<typeof ProgressPrimitive.Root>) {
@@ -24,11 +26,7 @@ function Progress({
       <ProgressPrimitive.Indicator
         data-slot="progress-indicator"
         className="bg-primary h-full w-full flex-1 transition-all"
-<<<<<<< HEAD
-        style={{ transform: `translateX(-${100 - (value || 0)}%)`, background:indicatorColor || "auto" }}
-=======
         style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
->>>>>>> ab7343556cfaf925fa7c6bc0a7c79a4429cf88f5
       />
     </ProgressPrimitive.Root>
   )
