@@ -29,4 +29,29 @@ export default defineSchema({
         })),
     }),
     }).index("by_clerk_id", ["clerkId"]),
+
+    // Learning modules
+  modules: defineTable({
+    title: v.string(),
+    description: v.string(),
+    level: v.string(),
+    xpReward: v.number(),
+    order: v.number(),
+    requiredModules: v.optional(v.array(v.id("modules"))),
+  }).index("by_order", ["order"]),
+
+
+moneySpent: defineTable({
+    clerkId: v.string(),
+    records: v.array(
+        v.object({
+            category: v.string(),
+            date: v.string(),
+            fullTimestamp: v.string(),
+            moneyPaid: v.string(),
+            to: v.string(),
+        })
+    ),
+}).index("by_clerk_id", ["clerkId"]),
+
 });
