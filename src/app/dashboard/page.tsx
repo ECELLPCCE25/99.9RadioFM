@@ -77,7 +77,7 @@ const Page: NextPage = () => {
                 <p><strong>Category:</strong> {item.category}</p>
                 <p><strong>Date:</strong> {item.date}</p>
                 <p><strong>Full Timestamp:</strong> {item.fullTimestamp}</p>
-                <p><strong>Money Paid:</strong> ${item.moneyPaid}</p>
+                <p><strong>Money Paid:</strong>₹{item.moneyPaid}</p>
                 <p><strong>To:</strong> {item.to}</p>
               </li>
             ))}
