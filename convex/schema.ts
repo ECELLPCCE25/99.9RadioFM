@@ -29,4 +29,16 @@ export default defineSchema({
         })),
     }),
     }).index("by_clerk_id", ["clerkId"]),
+
+    // Learning modules
+  modules: defineTable({
+    title: v.string(),
+    description: v.string(),
+    level: v.string(),
+    xpReward: v.number(),
+    order: v.number(),
+    requiredModules: v.optional(v.array(v.id("modules"))),
+  }).index("by_order", ["order"]),
+
+
 });
