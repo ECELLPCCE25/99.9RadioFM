@@ -35,10 +35,8 @@ export default defineSchema({
     title: v.string(),
     description: v.string(),
     level: v.string(),
-    xpReward: v.number(),
-    order: v.number(),
-    requiredModules: v.optional(v.array(v.id("modules"))),
-  }).index("by_order", ["order"]),
+    progress: v.number(),
+  }).index("by_title", ["title"]),
 
 
 moneySpent: defineTable({

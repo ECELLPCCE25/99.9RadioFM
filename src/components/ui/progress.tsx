@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import * as React from "react"
@@ -8,7 +10,7 @@ import { cn } from "@/lib/utils"
 function Progress({
   className,
   value,
-  /*@ts-ignore*/
+  // @ts-expect-error
   indicatorColor,
   ...props
 }: React.ComponentProps<typeof ProgressPrimitive.Root>) {
