@@ -1,5 +1,6 @@
 "use client";
 import {
+  ArrowLeft,
   BarChart3,
   BookOpen,
   Calendar,
@@ -29,6 +30,7 @@ import Fin from "@/assets/fin.png";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function FinancialDashboard() {
   const moduleData = useQuery(api.modules.getModules);
@@ -44,9 +46,14 @@ export default function FinancialDashboard() {
   }, [moduleData]);
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col relative">
+      <Link href={'/dashboard'} className="absolute top-10 left-10">
+        <Button>
+          <ArrowLeft/>Back
+        </Button>
+      </Link>
       <div className="flex-1 space-y-6 p-6">
-        <div className="space-y-2">
+        <div className="space-y-2 ml-40">
           <h1 className="text-3xl font-bold tracking-tight">
             Learning Journey
           </h1>
@@ -248,6 +255,7 @@ export default function FinancialDashboard() {
                 {moduleData?.map((module) => (
                   <ModuleCard
                     key={module._id}
+                    id={module._id}
                     title={module.title}
                     description={module.description}
                     icon={<BarChart3 className="h-5 w-5 text-teal-600" />}

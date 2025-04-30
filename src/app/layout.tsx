@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ConvexClientProvider } from "./ConvexClientProvider";
+import ChatBubble from "@/components/Chat";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,19 +34,7 @@ export default function RootLayout({
           <ConvexClientProvider>
           {children}
           </ConvexClientProvider>
-
-          {/* 
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6810ff7d3aab2b190ea28e84/1iq16c1pb';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>*/}
+          <ChatBubble/>
         </body>
 
       </html>

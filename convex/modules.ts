@@ -40,3 +40,13 @@ export const updateProgress = mutation({
   },
 });
   
+//get module from id
+export const getModule = query({
+  args: {
+    id: v.id("modules"),
+  },
+  handler: async (ctx, args) => {
+    const modules = await ctx.db.get(args.id);
+    return modules;
+  },
+});

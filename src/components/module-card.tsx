@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
+import Link from "next/link"
 
 interface ModuleCardProps {
   title: string
@@ -12,9 +13,10 @@ interface ModuleCardProps {
   progress: number
   level: "beginner" | "intermediate" | "advanced"
   duration: string
+  id: string
 }
 
-export function ModuleCard({ title, description, icon, progress, level, duration }: ModuleCardProps) {
+export function ModuleCard({id, title, description, icon, progress, level, duration }: ModuleCardProps) {
   const getLevelColor = (level: string) => {
     switch (level) {
       case "beginner":
@@ -48,10 +50,12 @@ export function ModuleCard({ title, description, icon, progress, level, duration
         <Progress value={progress} className="h-1" />
       </CardContent>
       <CardFooter>
+        <Link href={`/learn/${id}`} className="w-full">
         <Button variant="ghost" className="w-full justify-between">
           {progress > 0 ? "Continue" : "Start Learning"}
           <ChevronRight className="h-4 w-4" />
         </Button>
+        </Link>
       </CardFooter>
     </Card>
   )

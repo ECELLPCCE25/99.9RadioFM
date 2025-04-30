@@ -7,6 +7,9 @@ import InvestmentCalculator from "./ui/calculators/investment-calculator"
 import RetirementCalculator from "./ui/calculators/retirement-calculator"
 import BudgetCalculator from "./ui/calculators/budget-calculator"
 import GoalsAndDebts from "./ui/calculators/goals-and-debts"
+import Link from "next/link"
+import { Button } from "./ui/button"
+import { ArrowLeft } from "lucide-react"
 
 export default function FinancialCalculator() {
   const [activeTab, setActiveTab] = useState<keyof typeof calculators>("loan")
@@ -29,9 +32,17 @@ export default function FinancialCalculator() {
 
   return (
     <div className="flex flex-col md:flex-row w-full mx-auto min-h-screen">
+
+
       {/* Sidebar */}
       <div className="w-full md:w-64 bg-gray-100 dark:bg-gray-800 p-4">
-        <h2 className="text-xl font-bold mb-6 px-2">Financial Tools</h2>
+      <Link href={'/dashboard'}>
+        <Button>
+         <ArrowLeft/> Back
+        </Button>
+      </Link>
+
+        <h2 className="text-xl font-bold mb-6 px-2 pt-5">Financial Tools</h2>
         <div className="flex flex-col space-y-2">
           {Object.keys(calculators).map((tab) => (
             <button
