@@ -2,24 +2,29 @@
 
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts"
 
-const data = [
-  { name: "Education", value: 8750, color: "#3b82f6" },
-  { name: "Food", value: 4320, color: "#16a34a" },
-  { name: "Traveling", value: 3650, color: "#facc15" },
-  { name: "Recharges", value: 2450, color: "#a855f7" },
-  { name: "Fuel", value: 1850, color: "#ef4444" },
-  { name: "Electricity", value: 1520, color: "#f97316" },
-  { name: "Chocolates", value: 826, color: "#ec4899" },
-  { name: "Other", value: 1200, color: "#6b7280" },
-]
+const colorMap = {
+    Education: "#3b82f6",
+    Food: "#16a34a",
+    Traveling: "#facc15",
+    Recharges: "#a855f7",
+    Fuel: "#ef4444",
+    Electricity: "#f97316",
+    Chocolates: "#ec4899",
+    Other: "#6b7280"
+  };
 
-export function SpendingByCategory() {
+export function SpendingByCategory({data}) {
+    const datar = Object.entries(data).map(([name, value]) => ({
+        name,
+        value: Math.round(value), // optional: round the number
+        color: colorMap[name] || "#000000" // fallback color if missing
+      }));
   return (
     <div className="h-[300px] w-full">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
-            data={data}
+            data={datar}
             cx="50%"
             cy="50%"
             innerRadius={60}
@@ -29,7 +34,7 @@ export function SpendingByCategory() {
             label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
             labelLine={false}
           >
-            {data.map((entry, index) => (
+            {datar.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
             ))}
           </Pie>
