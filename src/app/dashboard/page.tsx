@@ -294,23 +294,46 @@ const Page: NextPage = () => {
               </Card>
             </TabsContent>
             <TabsContent value="analytics" className="space-y-4">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Advanced Analytics</CardTitle>
-                  <CardDescription>Detailed analysis of your spending patterns</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                  <li>Based on your past spending, we expect your future spending to decrease by <strong>6.97%</strong>.</li>
-                    <li>Based on your past spending on <strong>education</strong>, we expect your future spending to remain the same.</li>
-                    <li>Based on your past spending on <strong>electricity</strong>, we expect your future spending to decrease by <strong>15.22%</strong>.</li>
-                    <li>Based on your past spending on <strong>food</strong>, we expect your future spending to decrease by <strong>3.33%</strong>.</li>
-                    <li>Based on your past spending on <strong>travelling</strong>, we expect your future spending to decrease by <strong>1.97%</strong>.</li>
-                    <li>Based on your past spending on <strong>fuel</strong>, we expect your future spending to decrease by <strong>1.26%</strong>.</li>
-                    <li>Based on your past spending on <strong>chocolates</strong>, we expect your future spending to decrease by <strong>0.72%</strong>.</li>
-                  </ul>
-                </CardContent>
-              </Card>
+            <Card>
+  <CardHeader>
+    <CardTitle>Advanced Analytics</CardTitle>
+    <CardDescription>Detailed analysis of your spending patterns</CardDescription>
+  </CardHeader>
+
+  <CardContent>
+    <ul className="space-y-2">
+      <li>Based on your past spending, we expect your future spending to decrease by <strong>6.97%</strong>.</li>
+      <li>Based on your past spending on <strong>education</strong>, we expect your future spending to remain the same.</li>
+      <li>Based on your past spending on <strong>electricity</strong>, we expect your future spending to decrease by <strong>15.22%</strong>.</li>
+      <li>Based on your past spending on <strong>food</strong>, we expect your future spending to decrease by <strong>3.33%</strong>.</li>
+      <li>Based on your past spending on <strong>travelling</strong>, we expect your future spending to decrease by <strong>1.97%</strong>.</li>
+      <li>Based on your past spending on <strong>fuel</strong>, we expect your future spending to decrease by <strong>1.26%</strong>.</li>
+      <li>Based on your past spending on <strong>chocolates</strong>, we expect your future spending to decrease by <strong>0.72%</strong>.</li>
+    </ul>
+  </CardContent>
+
+  <CardFooter className="flex flex-col gap-4">
+    <h4 className="font-medium text-sm text-muted-foreground">Related Videos</h4>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+      <iframe
+        className="w-full aspect-video rounded-md border"
+        src="https://www.youtube.com/embed/hyABApQ4HoI"
+        title="Spending Analytics Explained"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+      <iframe
+        className="w-full aspect-video rounded-md border"
+        src="https://www.youtube.com/embed/KgL3egde4iY"
+        title="How to Save Based on Spending Data"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  </CardFooter>
+</Card>
             </TabsContent>
             <TabsContent value="transactions" className="space-y-4">
               <Card>
