@@ -179,6 +179,7 @@ const Page: NextPage = () => {
               <TabsTrigger value="transactions">Transactions</TabsTrigger>
               <TabsTrigger value="info">Finacial Terms</TabsTrigger>
               <TabsTrigger value="city-view">City View</TabsTrigger>
+              <TabsTrigger value="analytics">AI Analytic</TabsTrigger>
             </TabsList>
             <TabsContent value='info' className="space-y-4">
               <FinancialGlossary/>
@@ -299,9 +300,15 @@ const Page: NextPage = () => {
                   <CardDescription>Detailed analysis of your spending patterns</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-center py-10">
-                    <p className="text-muted-foreground">Analytics view is coming soon</p>
-                  </div>
+                  <ul className="space-y-2">
+                  <li>Based on your past spending, we expect your future spending to decrease by <strong>6.97%</strong>.</li>
+                    <li>Based on your past spending on <strong>education</strong>, we expect your future spending to remain the same.</li>
+                    <li>Based on your past spending on <strong>electricity</strong>, we expect your future spending to decrease by <strong>15.22%</strong>.</li>
+                    <li>Based on your past spending on <strong>food</strong>, we expect your future spending to decrease by <strong>3.33%</strong>.</li>
+                    <li>Based on your past spending on <strong>travelling</strong>, we expect your future spending to decrease by <strong>1.97%</strong>.</li>
+                    <li>Based on your past spending on <strong>fuel</strong>, we expect your future spending to decrease by <strong>1.26%</strong>.</li>
+                    <li>Based on your past spending on <strong>chocolates</strong>, we expect your future spending to decrease by <strong>0.72%</strong>.</li>
+                  </ul>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -318,19 +325,6 @@ const Page: NextPage = () => {
             </TabsContent>
           </Tabs>
         ) : (
-          // <div className="flex flex-col items-center justify-center h-screen">
-          //   <input
-          //     id="file"
-          //     type="file"
-          //     ref={inputRef}
-          //     style={{ display: 'none' }}
-          //     onChange={handleFileChange}
-          //   />
-          //   <Button className="text-lg px-6 py-7" onClick={triggerFileInput}>
-          //     Upload
-          //     <FileUpIcon className="ml-2" />
-          //   </Button>
-          // </div>
           <div className="container w-full py-12">
       <h1 className="mb-6 text-3xl font-bold">Upload Transaction Data</h1>
       <p className="mb-8 text-muted-foreground">
