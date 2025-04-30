@@ -10,6 +10,7 @@ import GoalsAndDebts from "./ui/calculators/goals-and-debts"
 import Link from "next/link"
 import { Button } from "./ui/button"
 import { ArrowLeft } from "lucide-react"
+import TaxCalculator from "./ui/calculators/tax-calculator"
 
 export default function FinancialCalculator() {
   const [activeTab, setActiveTab] = useState<keyof typeof calculators>("loan")
@@ -20,6 +21,7 @@ export default function FinancialCalculator() {
     retirement: <RetirementCalculator />,
     budget: <BudgetCalculator />,
     goalsdebts: <GoalsAndDebts />,
+    tax:<TaxCalculator/>
   }
   
   const tabLabels = {
@@ -28,6 +30,7 @@ export default function FinancialCalculator() {
     retirement: "Retirement Calculator",
     budget: "Budget Calculator",
     goalsdebts: "Goals and Debts",
+    tax:"Tax Calculator"
   }
 
   return (

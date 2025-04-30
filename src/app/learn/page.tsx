@@ -7,7 +7,10 @@ import {
   ChevronRight,
   Clock,
   LineChart,
+  MessageSquareText,
+  TargetIcon,
   TrendingUp,
+  UsersIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -154,25 +157,32 @@ export default function FinancialDashboard() {
           </div>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-          <Card className="lg:col-span-4">
-            <CardHeader>
-              <CardTitle>Learning Progress</CardTitle>
-              <CardDescription>
-                Your progress across different financial topics
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="h-[250px] w-full">
-                <Image
-                  src="/placeholder.svg?height=250&width=650&text=Progress+Chart"
-                  width={650}
-                  height={250}
-                  alt="Progress Chart"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </CardContent>
-          </Card>
+        <Card className="lg:col-span-4 p-6 bg-gradient-to-br from-white via-gray-50 to-gray-100 shadow-xl rounded-2xl border border-gray-200">
+  <CardHeader className="mb-4 space-y-2">
+    <div className="flex items-center gap-3">
+      <UsersIcon className="w-6 h-6 text-blue-600" />
+      <CardTitle className="text-2xl font-semibold text-gray-800">
+        Group Chats
+      </CardTitle>
+    </div>
+    <CardDescription className="text-gray-600 leading-relaxed">
+      Join a community of learners and financial mentors. Set savings goals, ask questions, and grow your knowledge together. 
+      Perfect for students, working professionals, and anyone seeking money mastery.
+    </CardDescription>
+  </CardHeader>
+  <CardContent className="space-y-3">
+    <ul className="text-sm text-gray-700 pl-2 space-y-1 list-disc">
+      <li className="flex items-center gap-2"><MessageSquareText className="w-4 h-4 text-green-600" /> Real-time discussion with finance mentors</li>
+      <li className="flex items-center gap-2"><TargetIcon className="w-4 h-4 text-purple-600" /> Set and track group goals</li>
+      <li className="flex items-center gap-2"><UsersIcon className="w-4 h-4 text-blue-600" /> Peer-to-peer learning and sharing</li>
+    </ul>
+    <Link href="/group-chat" passHref>
+      <Button className="w-full py-5 text-base font-medium bg-black text-white rounded-xl transition-all duration-200 shadow-md">
+        Join the Group Chat
+      </Button>
+    </Link>
+  </CardContent>
+</Card>
           <Card className="lg:col-span-3">
             <CardHeader>
               <CardTitle>Learning Path</CardTitle>
