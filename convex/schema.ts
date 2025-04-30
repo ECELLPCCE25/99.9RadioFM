@@ -83,4 +83,11 @@ moneySpent: defineTable({
         end_date: v.string(),
         progress: v.number(),
     }).index("by_group_id", ["groupId"]),
+
+    debts: defineTable({
+        id: v.string(),
+        debt: v.string(),
+        end_date: v.string(),
+        progress: v.number(),
+    }).index("by_clerk_id", ["id"]),
 });

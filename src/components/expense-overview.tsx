@@ -51,7 +51,8 @@ const data = [
   },
 ]
 
-export function ExpenseOverview() {
+export function ExpenseOverview({data}:any) {
+
   return (
     <ChartContainer
       config={{
@@ -88,22 +89,22 @@ export function ExpenseOverview() {
           color: "hsl(220, 9%, 46%)",
         },
       }}
-      className="h-[300px]"
+      className="h-[300px] w-full"
     >
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer  width="100%" height="100%">
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
           <XAxis dataKey="month" tickLine={false} axisLine={false} tickFormatter={(value) => value.substring(0, 3)} />
           <YAxis tickLine={false} axisLine={false} tickFormatter={(value) => `₹${value}`} />
           <ChartTooltip content={<ChartTooltipContent />} />
-          <Bar dataKey="education" fill="var(--color-education)" radius={4} />
-          <Bar dataKey="food" fill="var(--color-food)" radius={4} />
-          <Bar dataKey="traveling" fill="var(--color-traveling)" radius={4} />
-          <Bar dataKey="recharges" fill="var(--color-recharges)" radius={4} />
-          <Bar dataKey="fuel" fill="var(--color-fuel)" radius={4} />
-          <Bar dataKey="electricity" fill="var(--color-electricity)" radius={4} />
-          <Bar dataKey="chocolates" fill="var(--color-chocolates)" radius={4} />
-          <Bar dataKey="other" fill="var(--color-other)" radius={4} />
+          <Bar dataKey="Education" fill="var(--color-education)" radius={4} />
+          <Bar dataKey="Food" fill="var(--color-food)" radius={4} />
+          <Bar dataKey="Traveling" fill="var(--color-traveling)" radius={4} />
+          <Bar dataKey="Recharges" fill="var(--color-recharges)" radius={4} />
+          <Bar dataKey="Fuel" fill="var(--color-fuel)" radius={4} />
+          <Bar dataKey="Electricity" fill="var(--color-electricity)" radius={4} />
+          <Bar dataKey="Chocolates" fill="var(--color-chocolates)" radius={4} />
+          <Bar dataKey="Other" fill="var(--color-other)" radius={4} />
         </BarChart>
       </ResponsiveContainer>
     </ChartContainer>

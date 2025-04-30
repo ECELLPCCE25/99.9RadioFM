@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import Hotel from '../../public/goodhotel.webp';
 import BurgerBuilding from '../../public/burger.webp';
+import { CheckCircle, SparkleIcon } from 'lucide-react';
 
 const buildingList = [
   { id: 'hotel', src: Hotel, name: 'Hotel' },
@@ -11,6 +12,16 @@ const buildingList = [
 ];
 
 const IMAGE_SIZE = 400;
+const handleMouseMove = (e) => {
+    if (draggedBuilding) {
+      setDraggedBuilding((prev) => ({
+        ...prev,
+        x: e.clientX,
+        y: e.clientY,
+      }));
+    }
+  };
+
 
 function isOverlapping(x1, y1, x2, y2, size = 280) {
     console.log(x1, y1, x2, y2, size);
@@ -80,6 +91,19 @@ export default function IsoTileEditor() {
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
+      <div className='w-fit absolute top-3 left-3'>
+        <p className='font-semibold mb-1'>Daily Goals</p>
+        <div className='bg-white w-fit p-3 rounded-md shadow'>
+            <p className='flex items-center gap-2 text-sm text-gray-700'>
+                <CheckCircle className='h-4 w-4'/>
+                Save Rs.100 on food
+            </p>
+        </div>
+      </div>
+      <div className='w-fit absolute flex gap-2 top-3 right-3'>
+        <SparkleIcon />
+        100
+      </div>
       {/* Placed Buildings */}
       {placedBuildings.map((bld, index) => (
         <div
@@ -90,7 +114,9 @@ export default function IsoTileEditor() {
             top: bld.y,
             pointerEvents: 'none',
           }}
+          className='flex items-center justify-center'
         >
+          <div className='h-10 w-10 bg-black text-white flex items-center justify-center rounded-full absolute'>{index}</div>
           <Image src={bld.src} alt={bld.name} width={IMAGE_SIZE} height={IMAGE_SIZE} />
         </div>
       ))}

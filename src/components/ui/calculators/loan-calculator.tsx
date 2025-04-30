@@ -9,6 +9,11 @@ import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { Calendar } from "lucide-react"
 import { Percent } from "lucide-react"
+import { Button } from "../button"
+import { useUser } from "@clerk/nextjs"
+import { api } from "../../../../convex/_generated/api"
+import { useMutation } from "convex/react"
+import { CreateDebtDialog } from "@/components/create-debt-dialog"
 
 export default function LoanCalculator() {
   const [loanAmount, setLoanAmount] = useState(200000)
@@ -17,6 +22,11 @@ export default function LoanCalculator() {
   const [monthlyPayment, setMonthlyPayment] = useState(0)
   const [totalPayment, setTotalPayment] = useState(0)
   const [totalInterest, setTotalInterest] = useState(0)
+
+  const [isCreatingDebt, setIsCreatingDebt] = useState(false)
+  const createDebt = useMutation(api.debts.createDebt)
+
+  const { user } = useUser();
 
   useEffect(() => {
     calculateLoan()
@@ -64,6 +74,16 @@ export default function LoanCalculator() {
     }).format(value)
   }
 
+  const handleCreateGroup = async(debt: string, date: string) => {
+      await createDebt({
+          id: user?.id!,
+          debt:debt!,
+          end_date: date,
+          progress: 0
+      })  
+      setIsCreatingDebt(false)
+    }
+  
   return (
     <Card className="border-0 shadow-none">
       <CardContent className="space-y-6">
@@ -181,8 +201,14 @@ export default function LoanCalculator() {
               <p className="text-2xl font-bold">{formatCurrency(totalInterest)}</p>
             </CardContent>
           </Card>
+          <Button onClick={()=>setIsCreatingDebt(true)}>Set as Loan Target</Button>
         </div>
       </CardContent>
+      <CreateDebtDialog
+        isOpen={isCreatingDebt}
+        onClose={() => setIsCreatingDebt(false)}
+        onCreateGroup={handleCreateGroup}
+      />
     </Card>
   )
 }

@@ -6,6 +6,7 @@ import LoanCalculator from "./ui/calculators/loan-calculator"
 import InvestmentCalculator from "./ui/calculators/investment-calculator"
 import RetirementCalculator from "./ui/calculators/retirement-calculator"
 import BudgetCalculator from "./ui/calculators/budget-calculator"
+import GoalsAndDebts from "./ui/calculators/goals-and-debts"
 
 export default function FinancialCalculator() {
   const [activeTab, setActiveTab] = useState<keyof typeof calculators>("loan")
@@ -14,14 +15,16 @@ export default function FinancialCalculator() {
     loan: <LoanCalculator />,
     investment: <InvestmentCalculator />,
     retirement: <RetirementCalculator />,
-    budget: <BudgetCalculator />
+    budget: <BudgetCalculator />,
+    goalsdebts: <GoalsAndDebts />,
   }
   
   const tabLabels = {
     loan: "Loan Calculator",
     investment: "Investment Calculator",
     retirement: "Retirement Calculator",
-    budget: "Budget Calculator"
+    budget: "Budget Calculator",
+    goalsdebts: "Goals and Debts",
   }
 
   return (
